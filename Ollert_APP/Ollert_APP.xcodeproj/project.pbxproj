@@ -11,6 +11,7 @@
 		B1BC9D3A2A14AB8300C92C2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BC9D392A14AB8300C92C2E /* ContentView.swift */; };
 		B1BC9D3C2A14AB8500C92C2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1BC9D3B2A14AB8500C92C2E /* Assets.xcassets */; };
 		B1BC9D3F2A14AB8500C92C2E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1BC9D3E2A14AB8500C92C2E /* Preview Assets.xcassets */; };
+		B1BC9D462A14AD3C00C92C2E /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BC9D452A14AD3C00C92C2E /* TaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		B1BC9D392A14AB8300C92C2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B1BC9D3B2A14AB8500C92C2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1BC9D3E2A14AB8500C92C2E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B1BC9D452A14AD3C00C92C2E /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				B1BC9D372A14AB8300C92C2E /* Ollert_APPApp.swift */,
 				B1BC9D392A14AB8300C92C2E /* ContentView.swift */,
+				B1BC9D452A14AD3C00C92C2E /* TaskView.swift */,
 				B1BC9D3B2A14AB8500C92C2E /* Assets.xcassets */,
 				B1BC9D3D2A14AB8500C92C2E /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1BC9D462A14AD3C00C92C2E /* TaskView.swift in Sources */,
 				B1BC9D3A2A14AB8300C92C2E /* ContentView.swift in Sources */,
 				B1BC9D382A14AB8300C92C2E /* Ollert_APPApp.swift in Sources */,
 			);
