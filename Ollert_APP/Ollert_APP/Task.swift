@@ -2,12 +2,16 @@ import Foundation
 
 struct Task: Identifiable, Codable {
     var id = UUID()
-    let name: String
-    let subject: String
-    let dueDate: Date
-    let currentPage: String
-    let description: String
+    var name: String
+    var subject: String
+    var dueDate: Date
+    var currentPage: String
+    var description: String
+    var timerRunning: Bool = false
+    var timerDuration: TimeInterval = 25 * 60 // Default timer duration is 25 minutes
+    var timerProgress: TimeInterval = 0
 }
+
 
 extension Task: Equatable {}
 

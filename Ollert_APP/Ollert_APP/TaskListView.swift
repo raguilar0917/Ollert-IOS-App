@@ -6,19 +6,37 @@ struct TaskListView: View {
     @Binding var refresh: Bool
     let currentPage: String
     
+    @State private var selectedTask: Task?
+    
     var body: some View {
         NavigationView {
             List {
                 ForEach(filteredTasks) { task in
-                    Text(task.name)
-                }
-                .onDelete { indexSet in
-                    deleteTasks(at: indexSet)
+                    Button(action: {
+                        selectedTask = task
+                    }) {
+                        Text(task.name)
+                    }
+                    .contextMenu {
+                        Button(action: {
+                            deleteTask(task)
+                        }) {
+                            Label("Delete", systemImage: "trash")
+                        }
+                        Button(action: {
+                            switchTaskPage(task)
+                        }) {
+                            Label("Switch Page", systemImage: "arrow.right.square")
+                        }
+                    }
                 }
             }
             .navigationTitle(title)
             .navigationBarItems(trailing: addButton)
             .id(refresh) // Reload the view when refresh is true
+            .sheet(item: $selectedTask) { task in
+                TaskDetailView(task: task, tasks: $tasks)
+            }
         }
     }
     
@@ -43,8 +61,17 @@ struct TaskListView: View {
         return tasks.filter { $0.currentPage == currentPage }
     }
     
-    private func deleteTasks(at offsets: IndexSet) {
-        tasks.remove(atOffsets: offsets)
-        refresh.toggle() // Toggle refresh to trigger view refresh
+    private func deleteTask(_ task: Task) {
+        if let index = tasks.firstIndex(of: task) {
+            tasks.remove(at: index)
+            refresh.toggle() // Toggle refresh to trigger view refresh
+        }
+    }
+    
+    private func switchTaskPage(_ task: Task) {
+        if let index = tasks.firstIndex(of: task) {
+            tasks[index].currentPage = currentPage
+            refresh.toggle() // Toggle refresh to trigger view refresh
+        }
     }
 }
