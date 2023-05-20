@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1ABB1A6C2A18862C0047644A /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB1A6B2A18862B0047644A /* TaskListView.swift */; };
+		1ABB1A6E2A1886490047644A /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB1A6D2A1886490047644A /* AddTaskView.swift */; };
+		1ABB1A722A188BAE0047644A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB1A712A188BAE0047644A /* Task.swift */; };
 		B1BC9D382A14AB8300C92C2E /* Ollert_APPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BC9D372A14AB8300C92C2E /* Ollert_APPApp.swift */; };
 		B1BC9D3A2A14AB8300C92C2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BC9D392A14AB8300C92C2E /* ContentView.swift */; };
 		B1BC9D3C2A14AB8500C92C2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1BC9D3B2A14AB8500C92C2E /* Assets.xcassets */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1ABB1A6B2A18862B0047644A /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
+		1ABB1A6D2A1886490047644A /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
+		1ABB1A712A188BAE0047644A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		B1BC9D342A14AB8300C92C2E /* Ollert_APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ollert_APP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1BC9D372A14AB8300C92C2E /* Ollert_APPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ollert_APPApp.swift; sourceTree = "<group>"; };
 		B1BC9D392A14AB8300C92C2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +59,9 @@
 		B1BC9D362A14AB8300C92C2E /* Ollert_APP */ = {
 			isa = PBXGroup;
 			children = (
+				1ABB1A712A188BAE0047644A /* Task.swift */,
+				1ABB1A6D2A1886490047644A /* AddTaskView.swift */,
+				1ABB1A6B2A18862B0047644A /* TaskListView.swift */,
 				B1BC9D372A14AB8300C92C2E /* Ollert_APPApp.swift */,
 				B1BC9D392A14AB8300C92C2E /* ContentView.swift */,
 				B1BC9D452A14AD3C00C92C2E /* TaskView.swift */,
@@ -142,6 +151,9 @@
 			files = (
 				B1BC9D462A14AD3C00C92C2E /* TaskView.swift in Sources */,
 				B1BC9D3A2A14AB8300C92C2E /* ContentView.swift in Sources */,
+				1ABB1A6C2A18862C0047644A /* TaskListView.swift in Sources */,
+				1ABB1A6E2A1886490047644A /* AddTaskView.swift in Sources */,
+				1ABB1A722A188BAE0047644A /* Task.swift in Sources */,
 				B1BC9D382A14AB8300C92C2E /* Ollert_APPApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
