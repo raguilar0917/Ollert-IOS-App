@@ -20,7 +20,7 @@ struct TaskDetailView: View {
     @State private var editedDescription: String
     @State private var editedCurrentPage: String
     
-    @State private var isEditing = false // Add this line
+    @State private var isEditing = false
     
     init(task: Task, tasks: Binding<[Task]>) {
         self.task = task
@@ -35,112 +35,126 @@ struct TaskDetailView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            if isEditing {
-                // Editing mode UI
-                VStack(alignment: .leading, spacing: 8) {
-                    // Task Name
-                    Text("Task Name")
-                        .font(.headline)
-                    TextField("Task Name", text: $editedName)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    
-                    // Subject
-                    Text("Subject")
-                        .font(.headline)
-                    TextField("Subject", text: $editedSubject)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    
-                    // Due Date
-                    Text("Due Date")
-                        .font(.headline)
-                    DatePicker("Due Date", selection: $editedDueDate, displayedComponents: .date)
-                        .datePickerStyle(WheelDatePickerStyle())
-                    
-                    // Description
-                    Text("Description")
-                        .font(.headline)
-                    TextEditor(text: $editedDescription)
-                        .frame(height: 120)
-                        .cornerRadius(8)
-                        .border(Color.secondary, width: 1)
-                    
-                    // Current Page
-                    Text("Current Page")
-                        .font(.headline)
-                    Picker("Current Page", selection: $editedCurrentPage) {
-                        Text("Need to do").tag("Need to do")
-                        Text("Currently doing").tag("Currently doing")
-                        Text("Finished tasks").tag("Finished tasks")
+        NavigationView {
+            VStack(alignment: .leading, spacing: 16) {
+                if isEditing {
+                    // Editing mode UI
+                    VStack(alignment: .leading, spacing: 8) {
+                        // Task Name
+                        Text("Task Name")
+                            .font(.headline)
+                        TextField("Task Name", text: $editedName)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        
+                        // Subject
+                        Text("Subject")
+                            .font(.headline)
+                        TextField("Subject", text: $editedSubject)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        
+                        // Due Date
+                        Text("Due Date")
+                            .font(.headline)
+                        DatePicker("Due Date", selection: $editedDueDate, displayedComponents: .date)
+                            .datePickerStyle(WheelDatePickerStyle())
+                        
+                        // Description
+                        Text("Description")
+                            .font(.headline)
+                        TextEditor(text: $editedDescription)
+                            .frame(height: 120)
+                            .cornerRadius(8)
+                            .border(Color.secondary, width: 1)
+                        
+                        // Current Page
+                        Text("Current Page")
+                            .font(.headline)
+                        Picker("Current Page", selection: $editedCurrentPage) {
+                            Text("Need to do").tag("Need to do")
+                            Text("Currently doing").tag("Currently doing")
+                            Text("Finished tasks").tag("Finished tasks")
+                        }
+                        .pickerStyle(MenuPickerStyle())
                     }
-                    .pickerStyle(MenuPickerStyle())
-                }
-                .padding(.horizontal)
-                
-                Spacer()
-                
-                Button(action: {
-                    // Save the edited task
-                    saveTask()
-                    isEditing = false
-                }) {
-                    Text("Save Task")
-                        .font(.title)
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                }
-                .padding(.horizontal)
-                .padding(.bottom)
-            } else {
-                // View mode UI
-                VStack(alignment: .leading, spacing: 8) {
-                    // Task Name
-                    Text(task.name)
-                        .font(.title)
+                    .padding(.horizontal)
                     
-                    // Subject
-                    Text("Subject")
-                        .font(.headline)
-                    Text(task.subject)
+                    Spacer()
                     
-                    // Due Date
-                    Text("Due Date")
-                        .font(.headline)
-                    Text(formattedDueDate)
+                    Button(action: {
+                        // Save the edited task
+                        saveTask()
+                        isEditing = false
+                    }) {
+                        Text("Save Task")
+                            .font(.title)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                } else {
+                    // View mode UI
+                    VStack(alignment: .leading, spacing: 8) {
+                        // Task Name
+                        Text("Task name")
+                            .font(.title)
+                        Text(task.name)
+                            .font(.title)
+                        
+                        // Subject
+                        Text("Subject")
+                            .font(.headline)
+                        Text(task.subject)
+                        
+                        // Due Date
+                        Text("Due Date")
+                            .font(.headline)
+                        Text(formattedDueDate)
+                        
+                        // Description
+                        Text("Description")
+                            .font(.headline)
+                        Text(task.description)
+                            .frame(maxHeight: .infinity)
+                        
+                        // Current Page
+                        Text("Current Page")
+                            .font(.headline)
+                        Text(task.currentPage)
+                    }
+                    .padding(.horizontal)
                     
-                    // Description
-                    Text("Description")
-                        .font(.headline)
-                    Text(task.description)
-                        .frame(maxHeight: .infinity)
+                    Spacer()
                     
-                    // Current Page
-                    Text("Current Page")
-                        .font(.headline)
-                    Text(task.currentPage)
+                    Button(action: {
+                        isEditing = true
+                    }) {
+                        Text("Edit Task")
+                            .font(.title)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.green)
+                            .cornerRadius(10)
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                    
+                    NavigationLink(destination: PomodoroTimerView()) {
+                        Text("Start Pomodoro")
+                            .font(.title)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.orange)
+                            .cornerRadius(10)
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom)
                 }
-                .padding(.horizontal)
-                
-                Spacer()
-                
-                Button(action: {
-                    isEditing = true
-                }) {
-                    Text("Edit Task")
-                        .font(.title)
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.green)
-                        .cornerRadius(10)
-                }
-                .padding(.horizontal)
-                .padding(.bottom)
             }
+            .navigationBarItems(trailing: closeButton)
         }
-        .navigationTitle("Task Detail")
-        .navigationBarItems(trailing: closeButton)
     }
     
     private var formattedDueDate: String {
