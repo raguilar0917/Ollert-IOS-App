@@ -1,8 +1,10 @@
 # Ollert-IOS-App
 Description:
+
 For our project, we made a productivity app that helps users keep track of their tasks and the progress they have made on those tasks. Users can organize their tasks based on what they need to complete, what they are currently working on, and what they have completed. The app also has a pomodoro timer feature for when the user is currently working on one of their tasks and need to stay focused. 
 
 How to Use:
+
 Upon opening the app you’ll see the main content view three different lists: “Need to do”, “Currently doing”, and “Finished tasks”. The user can navigate between these three lists using the tab bar at the bottom of the view.
 
 Tapping the the “+” icon at the top right corner will allow you to create a new task for any of the three lists. This will open up AddTaskView. On this view, the user can create a new task. They set the name, the subject, the due date, which list/page the task belongs to and a description of the task.
